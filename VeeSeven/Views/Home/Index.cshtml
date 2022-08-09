@@ -1,0 +1,227 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    List<ProductModel> products = (List<ProductModel>)ViewData["Products"];
+    List<ImactStorieModel> stories = (List<ImactStorieModel>)ViewData["Stories"];
+}
+
+
+
+<!--****************Slider Section**************************************************************-->
+
+<div style="margin-top:-17px;">
+    <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel" style="margin-top:0px">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="row">
+                    <div class="col-md-6 headingThree">
+                        <h3>
+                            Vee Seven Child Protective , A Baby Safety Company delivers, cost-effective high quality child safety products. We are passionate about our work and seize every opportunity to prove our product quality.
+                        </h3>
+                        <button class="btn btnall " asp-controller="Product" asp-action="ProductsPage">Shop</button>
+                    </div>
+                    <div class="col-md-6">
+                        <div>
+                            <img class="d-block sliderImage " src="~/Images/pro1.jpg" alt="First slide" />
+                        </div>
+                        <div class="curve" style="width: 100%; height: 650px; ">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="carousel-item ">
+                <div class="row">
+                    <div class="col-md-6 headingThree">
+                        <h3>
+                            Vee Seven Child Protective , A Baby Safety Company delivers, cost-effective high quality child safety products. We are passionate about our work and seize every opportunity to prove our product quality.
+                        </h3>
+                        <button class="btn ">Shop</button>
+                    </div>
+                    <div class="col-md-6">
+                        <div>
+                            <img src="~/Images/pro2.jpg" class="d-block sliderImage " alt="Second  slide" />
+
+                        </div>
+                        <div class="curve" style="width: 100%; height: 650px; ">
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="carousel-item ">
+                <div class="row">
+                    <div class="col-md-6 headingThree">
+                        <h3>
+                            Vee Seven Child Protective , A Baby Safety Company delivers, cost-effective high quality child safety products. We are passionate about our work and seize every opportunity to prove our product quality.
+                        </h3>
+                        <button class="btn btnall ">Shop</button>
+                    </div>
+                    <div class="col-md-6">
+                        <div>
+                            <img class="d-block  sliderImage" src="~/Images/pro3.jpg" alt="First slide">
+                        </div>
+                        <div class="curve" style="width: 100%; height: 650px; ">
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--****************Slider Section End *************************************************************-->
+<!--*******************our Product******************************************************-->
+<partial name="~/Views/Product/ClientProducts.cshtml" model="@products" />
+<!--*******************our Product End******************************************************-->
+<!--****************Who we Are***************************-->
+<div class="content2">
+    <h4 class="text-center" style="padding: 45px 0 20px 0;  ">Who Are We</h4>
+    <p class="text-center whoWeareText">
+
+        WHO WE ARE
+        Vee Seven Child Protective , A Baby Safety Company delivers, cost-effective high quality child safety products. We are passionate about our work and seize every opportunity to prove our product quality. We are the leading Baby Safety Brand in Dubai, UAE and Middle East. we are partner with F I N Trading Dubai UAE a leading trading company in the region.
+    </p>
+    <div class="text-center">
+        <button class="btnall btn-lg mt-5" asp-controller="Home" asp-action="WhoAreWe"> Read More</button> <br><br><br>
+    </div>
+</div>
+<!--****************Who we Are End***************************-->
+<!--***********************What we do***************************************-->
+<div class="content3">
+    <h4 class="text-center" style="padding: 45px 0 30px 0;  ">What We Do</h4>
+    <div class="container-fluid mx-5">
+        <div class="row">
+
+            <div class="col-md-4 whatWeDo">
+
+                <i><img src="~/Icons/protect.png" alt=" protectIcon" srcset=""></i> <h5>We Provide Care</h5>
+                                                                                    <p>Our Baby safety goal is to give you a peace of mind that your child will be safe inside and outside of home.</p>
+
+            </div>
+            <div class="col-md-4 whatWeDo ">
+                <i><img src="~/Icons/solution.png" alt="SolutionIcon" srcset=""></i> <h5>We Provide Solutions</h5>
+                                                                                     <p>
+                                                                                         We Provide Custom Solutions to your needs for baby safety, Either it is a home, residential Building, Commercial building, School, Nursery and Playing areas. We baby Proof Floor, Stairs with our Edge Guard and Corner Guards.
+
+                                                                                     </p>
+
+            </div>
+            <div class="col-md-4 whatWeDo">
+
+                <i><img src="~/Icons/team.png" alt="TeamIcon" srcset=""></i> <h5>We Build Networks</h5>
+                                                                             <p>We build relations with our partners and customers end to end. Our wide range of baby safety products can be found on just a single click under trusted partners like Amazon, Noon.com, carrefour and many more. </p>
+
+            </div>
+        </div>
+
+        <div class="row mt-4">
+
+            <div class="col-md-4 whatWeDo">
+
+                <i><img src="~/Icons/presentation.png" alt="careIcon" srcset=""></i> <h5>We Educate</h5>
+                                                                                     <p>We don’t only  sell baby safety products and leave our customer un-attendent we educate them through blog posts, Articles Baby care and safety. </p>
+
+            </div>
+            <div class="col-md-4 whatWeDo">
+                <i><img src="~/Icons/consultation.png" alt="" srcset=""></i> <h5>We Consult</h5>
+                                                                             <p>Our fully trained staff in baby safety provide excellent consultation for your Home, Play area, schools and Nursery. We are Experts in our field we count and focus every inch of your area to provide best protection to your children. </p>
+
+            </div>
+            <div class="col-md-4 whatWeDo">
+
+                <i><img src="~/Icons/operator.png" alt="" srcset=""></i> <h5>We support 24/7</h5>
+                                                                         <p>We are available 24/7 at your service to provide best care to your children. you can reach us any time through our Hotline numbers or email.</p>
+            </div>
+        </div>
+
+    </div>
+    <br><br>
+</div>
+
+<!--***********************What we do End***************************************-->
+<!--**************************IMPACT STORIES*****************************************************-->
+<div class="content4">
+    <h4 class="text-center text-white" style="padding: 30px;">IMPACT STORIES</h4>
+    <div id="multi-item-example" class="carousel slide carousel-multi-item mt-4" data-ride="carousel">
+
+        <div class="carousel-inner" role="listbox">
+
+            <div class="carousel-item active">
+
+                @foreach (var story in stories)
+                {
+                    <div class="col-md-4" style="float:left">
+                        <div class="card mb-2">
+
+                            <div class="card-body">
+                                <h3>@story.Headline</h3>
+                                <p>@story.Discription</p>
+
+                            </div>
+                        </div>
+                    </div>
+                }
+
+            </div>
+
+            @*<div class="carousel-item">
+
+                    <div class="col-md-4" style="float:left">
+                        <div class="card mb-2">
+
+                            <div class="card-body">
+                                <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h3>
+                                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nulla reprehenderit, porro error neque pariatur quibusdam non atque debitis temporibus eos, mollitia dolor officia libero. Voluptas eligendi veritatis ad nostrum explicabo?</p>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4" style="float:left">
+                        <div class="card mb-2">
+
+                            <div class="card-body">
+                                <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h3>
+                                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nulla reprehenderit, porro error neque pariatur quibusdam non atque debitis temporibus eos, mollitia dolor officia libero. Voluptas eligendi veritatis ad nostrum explicabo?</p>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4" style="float:left">
+                        <div class="card mb-2">
+
+                            <div class="card-body">
+                                <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h3>
+                                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nulla reprehenderit, porro error neque pariatur quibusdam non atque debitis temporibus eos, mollitia dolor officia libero. Voluptas eligendi veritatis ad nostrum explicabo?</p>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>*@
+
+        </div>
+
+    </div>
+    <div class="text-center" style="padding: 20px 0 20px 0;">
+        <button class="btnall mt-4  impactMoreButton"> Read More</button> <br>
+    </div>
+
+</div>
+
+<!--**************************IMPACT STORIES End*****************************************************-->
+
+
+
+
+
+

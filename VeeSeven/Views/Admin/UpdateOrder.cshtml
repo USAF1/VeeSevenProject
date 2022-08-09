@@ -1,0 +1,57 @@
+﻿@model ShoppingCart
+<div class="container bg-white">
+
+    <div class="d-flex justify-content-between">
+        <h5 style="font-weight: 800;">Order Details</h5>
+        <h5 style="font-weight: 600; font-size: 24px; font-family: monospace; color: #fff000;">@Model.Status</h5>
+
+    </div><hr style="margin-top: 0px;">
+
+    <p> <b>Order ID: </b> @Model.Id  </p>
+    <p> <b>Customer Name: </b> @Model.User.Name </p>
+    <p> <b>Address: </b> @Model.User.Address </p>
+    <p><b>Contact: </b> @Model.User.Contact</p>
+    @if (Model.User.Email != null)
+    {
+        <p><b>Email: </b> @Model.User.Email</p>
+    }
+    else
+    {
+        <p><b>Email: </b> No Email</p>
+
+    }
+
+    <hr>
+    <h5>Product List</h5>
+    <table style="width: 100%;">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Quantity</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var product in Model.ShopingItems)
+            {
+                <tr>
+                    <td>@product.Item.Name</td>
+                    <td>@product.Quantity</td>
+                    <td>@product.Item.SalePrice</td>
+                </tr>
+            }
+        </tbody>
+    </table><hr>
+    <div class="d-flex justify-content-between">
+        <h5 style="font-weight: 800;">Total</h5>
+        <h5 style="font-weight: 800; ">$@Model.Totoal</h5>
+    </div>
+    <hr>
+    <p><b> Status</b></p>
+    <div class="d-flex justify-content-between">
+
+            <a class="btn-dark btnall " asp-action="UpdatePendingStatus" asp-controller="ShoppingCart" asp-route-id="@Model.Id"  style="text-decoration: none; color: white;">Pending</a>
+            <a class="btn-dark btnall " asp-action="UpdateCompletedStatus" asp-controller="ShoppingCart" asp-route-id="@Model.Id" style="text-decoration: none; color: white;">Completed</a>
+            <a class="btn-dark btnall " asp-action="UpdateSendStatus" asp-controller="ShoppingCart" asp-route-id="@Model.Id" style="text-decoration: none; color: white;">Send</a>
+    </div>
+</div>   

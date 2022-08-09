@@ -1,0 +1,30 @@
+﻿@model LoginModel
+@{
+    ViewData["Title"] = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="allBox">
+    <h1 class="text-center">Login</h1>
+</div>
+<div class="lnContainer" style="background-color:#f2f2f2; padding: 5px;">
+
+    <form asp-action="Login" asp-controller="User" method="post">
+        <div class="container mt-3 bg-white text-center my-3">
+            <h5 class="font-weight-bold text-center p-4 my-2">Please Login into your account</h5>
+            <input asp-for="Name" type="text" class="form-control w-75 p-3" style="background-color: #f8f8f8; margin-left: 15%;" placeholder="User Name" required>
+            <input asp-for="Password" type="password" class="form-control w-75 p-3 mt-3" style="background-color: #f8f8f8; margin-left: 15%;" placeholder="Password" required>
+
+            <button type="submit" class="btn-dark btnall mt-4 w-75 " style="margin-left: 50px;">
+                Login
+            </button>
+            <a href="signIn.html" style="text-decoration: none; color: #2e2c2c;"><p style="margin-left:-560px ;">Don't Have an Account SignIn</p></a><br><br>
+        </div>
+
+    </form>
+
+
+
+
+
+</div>

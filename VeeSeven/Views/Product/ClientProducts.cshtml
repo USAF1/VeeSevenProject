@@ -1,0 +1,33 @@
+﻿@model IEnumerable<ProductModel>
+
+<div class="content" style="background-color: #f2f2f2; width: 103%;">
+    <h4 class="text-center" style="padding: 40px;">Our Products</h4>
+    <div class="container-fluid animate__animated animate__fadeIn animate__delay-1s">
+        <div class="row mx-4">
+            @foreach (var product in Model)
+            {
+                <div class="col-md-4">
+                    <div class="card" style="width: 20rem; margin-bottom:30px;">
+                        @if (product.Image != null)
+                        {
+                            <img class="card-img-top" src="data:image/jpg;base64,@product.Image" alt="Card image cap">
+                        }
+                        else
+                        {
+                            <img class="card-img-top" src="~/Images/noimage.png" alt="Card image cap" style=" height:150px;">
+                        }
+
+                        <div class="card-body">
+                            <h5 class="card-title cardText">@product.Name</h5> <br>
+                            <h5 class="card-title cardText p-2">Price: $@product.SalePrice</h5>
+                            <a class="btn-dark btnall " asp-action="SingleProduct" asp-controller="Product" asp-route-id="@product.Id">Shop</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+    <div class="text-center">
+        <button class="btnall btn-lg mt-5" asp-action="ProductsPage" asp-controller="Product"> More Products</button> <br><br><br>
+    </div>
+</div>

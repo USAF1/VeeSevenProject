@@ -1,0 +1,98 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    List<CartItemModel> items = Context.Session.Get<List<CartItemModel>>(Constants.CartKey);
+    int produtcTotal = 0;
+    int subTotal = 0;
+    if (items != null)
+    {
+        foreach (var item in items)
+        {
+            produtcTotal = produtcTotal + (item.Quantity * (int)item.Item.SalePrice);
+        }
+        subTotal = produtcTotal + 20;
+    }
+}
+
+<div class="allBox">
+    <h1>Shopping Cart</h1>
+</div>
+
+<div class="container-fluid mt-5">
+    <div class="row">
+        <div class="col-md-6 mx-3" style="background-color: #d8d8d8;">
+            @if (items == null)
+            {
+                <h2>No Item In Cart</h2>
+            }
+            else
+            {
+                foreach (var item in items)
+                {
+                    <div class="row">
+                        <div class="col-md-6 mt-4">
+                            <div>
+                                @if (item.Item.Image != null)
+                                {
+                                    <img class="mt-2" src="data:image/jpg;base64,@item.Item.Image" style="width: 300px; height: 270px; margin-bottom: 25px; ">
+                                }
+                                else
+                                {
+                                    <img class="mt-2" src="~/Images/noimage.png" style="width: 300px; height: 270px; margin-bottom: 25px; ">
+                                }
+
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <h4 class="mt-5">@item.Item.Name</h4>
+                            <div class="card-body mt-3" style="margin-left: -17px;">
+                                <h5 class="card-title mt-3"> Price: $@item.Item.SalePrice</h5>
+                                <h6 class="card-title mt-3"> Quantity</h6>
+                                <div class="p-2 mt-4" style="width: 250px; height: 50px; background-color: #f2f2f2; display: flex; justify-content: space-around;">
+                                    <a href="#" style="text-decoration: none; color: black;"><h4 style="font-weight: bold;">-</h4></a>
+                                    <h3 class="text-center">@item.Quantity</h3>
+                                    <a href="#" style="text-decoration: none; color: black;"><h4 style="font-weight: bold;">+</h4></a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+
+
+        <div class="col-md-2"></div>
+
+        @if (items == null)
+        {
+            <div class="col-md-4 cartSummery " style="background-color: #d8d8d8; margin-left: -75px; height: 500px;">
+                <h4 class="text-center mt-3">Cart Summary</h4>
+                <p>By Continuing to checkout you agree to terms and conditions</p>
+                <h5 class="bg-white p-2 w-75 mt-4">Total Number of Products: 0</h5>
+                <h5 class="bg-white p-2 w-75 mt-3">Products Total: $0.00</h5>
+                <h5 class="bg-white p-2 w-75 mt-3">Delivery: $0</h5>
+                <h5 class="bg-white p-2 w-75 mt-3">Total: $0.00</h5>
+        
+                <br><br>
+            </div>
+        }
+        else
+        {
+            <div class="col-md-4 cartSummery " style="background-color: #d8d8d8; margin-left: -75px; height: 500px;">
+                <h4 class="text-center mt-3">Cart Summary</h4>
+                <p>By Continuing to checkout you agree to terms and conditions</p>
+                <h5 class="bg-white p-2 w-75 mt-4">Total Number of Products: @items.Count()</h5>
+                <h5 class="bg-white p-2 w-75 mt-3">Products Total: $@produtcTotal</h5>
+                <h5 class="bg-white p-2 w-75 mt-3">Delivery: $20</h5>
+                <h5 class="bg-white p-2 w-75 mt-3">Total: $@subTotal</h5>
+                <a asp-action="ConfirmOrder" asp-controller="ShoppingCart" class="btn btn-dark  btnall w-100 text-left mt-4">&nbsp; &nbsp; Checkout <i class="fas fa-long-arrow-alt-right float-right fa-2x"></i></a>
+                <br><br>
+            </div>
+        }
+
+    </div>
+</div>
+
+

@@ -1,0 +1,21 @@
+﻿@model UserModel
+<h3 style="text-align: left; width: 106%; margin-top: -20px; padding: 10px; margin-left: -15px;background-color: #f6f6f6;">Update User</h3>
+<div class="container mt-3 bg-white  my-3">
+    <form asp-action="UpdateUser" asp-controller="User">
+        <input asp-for="Id" hidden />
+
+        <input asp-for="Name" type="text" class="form-control w-100 " style="background-color: #f8f8f8; " placeholder="Name">
+        <input asp-for="Password" type="text" class="form-control w-100  mt-3" style="background-color: #f8f8f8;" placeholder="Password">
+        <input asp-for="Email" type="text" class="form-control w-100 mt-3" style="background-color: #f8f8f8;" placeholder="Email">
+        <input asp-for="Address" type="text" class="form-control w-100 mt-3" style="background-color: #f8f8f8;" placeholder="Address">
+        <input asp-for="Contact" type="number" class="form-control w-100  mt-3" style="background-color: #f8f8f8;" placeholder="Contact">
+        <input asp-for="Role.Name" type="text" class="form-control w-100 mt-3" style="background-color: #f8f8f8;" placeholder="Role">
+        <button class="btn-dark btnall mt-4 w-100 ">
+            Update User
+        </button>
+    </form>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
+</div>

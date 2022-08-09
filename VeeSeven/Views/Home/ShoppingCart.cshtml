@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewData["Title"] = "ShoppingCart";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    List<CartItemModel> items = Context.Session.Get<List<CartItemModel>>(Constants.CartKey);
+}
+
+<h1>ShoppingCart</h1>
+
+@if (items == null)
+{
+    <h2>No Item in cart</h2>
+}
+else
+{
+    foreach (var item in items)
+    {
+        <h6>@item.Item.Name</h6>
+        <h6>@item.Quantity</h6>
+        <h6>@item.Item.Id</h6>
+    }
+
+}
+
+
+

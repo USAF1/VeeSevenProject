@@ -1,0 +1,25 @@
+﻿@model IEnumerable<ProductModel>
+
+<div class="content" style="background-color: #f2f2f2; width: 103%;">
+    <h4 class="text-center" style="padding: 40px;">Our Products</h4>
+    <div class="container-fluid">
+        <div class="row mx-4">
+            @foreach (var product in Model)
+            {
+                <div class="col-md-4">
+                    <div class="card" style="width: 24rem;">
+                        <img class="card-img-top" src="/images/pro1.jpg" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title cardText">@product.Name</h5> <br>
+                            <h5 class="card-title cardText p-2">@product.SalePrice</h5>
+                            <a href="#" class="btn-dark btnall ">Shop</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+    <div class="text-center">
+        <button class="btnall btn-lg mt-5"> More Products</button> <br><br><br>
+    </div>
+</div>

@@ -1,0 +1,89 @@
+﻿@model ProductModel
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    List<ProductModel> products = (List<ProductModel>)ViewData["Products"];
+}
+
+<div class="content2">
+    <h3 class="p-3" style="font-weight: 800;">Products List</h3>
+
+    <a id="AddProduct" asp-action="AddProduct" asp-controller="Product" style="text-decoration: none; border-radius: 0px; padding: 0px 20px; font-size: 20px;" class="btn-dark btnall">Add Product</a>
+
+
+</div>
+<table class="table1">
+    <thead>
+        <tr>
+            <th class="p-2"> Product #</th>
+            <th>Name</th>
+            <th>Stock</th>
+            <th>Options</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @for (int i = 0; i < products.Count(); i++)
+        {
+            <tr>
+                <td class="p-2">@i</td>
+                <td>@products[i].Name</td>
+                @if (products[i].Stock <= 10)
+                {
+                    <td class="text-danger">@products[i].Stock</td>
+                }
+                else
+                {
+                    <td>@products[i].Stock</td>
+                }
+                <td>
+                    <a style="text-decoration:none;" id="UpdateProduct" asp-action="UpdateProduct" asp-controller="Product" asp-route-id="@products[i].Id"><img class="optionImage" src="~/Icons/edit.png" alt="edit"></a>
+                   @* <a style="text-decoration: none;" id="DeleteProduct" asp-action="DeleteProduct" asp-controller="Product" asp-route-id="@products[i].Id"><img class="optionImage" src="~/Icons/delete.png" alt="Update"></a>*@
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<!--Model For Products Process-->
+
+<div class="modal fade" id="ProductsModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div id="mydialog-body" class="modal-body">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@section Model{
+
+    <script>
+        $("#AddProduct,#UpdateProduct,#DeleteProduct").click(function (event) {
+            event.preventDefault();
+            var url = $(this).attr("href");
+            $.ajax(
+                {
+                    url: url,
+                }
+            ).done(function (contactform) {
+
+                $("#mydialog-body").html(contactform);
+                $("#ProductsModal").modal();
+            }).fail(function (status) {
+                alert(status.status);
+            });
+        })
+    </script>
+
+}
+
+
+
+
+
+

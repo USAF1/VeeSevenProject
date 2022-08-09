@@ -1,0 +1,82 @@
+﻿@model PaginatedList<ProductModel>
+@{
+    ViewData["Title"] = "Shop";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+<div class="allBox">
+    <h1>Products</h1>
+</div>
+
+<div class="content">
+    <div class="container-fluid p-3" style="margin-left: 50px;">
+        <div class="row mt-3">
+
+            @foreach (var product in Model)
+            {
+                <div class="col-md-4">
+                    <div class="card" style="width: 20rem; margin-bottom:35px;">
+                        @if (product.Image != null)
+                        {
+                            <img class="card-img-top" src="data:image/jpg;base64,@product.Image" alt="Card image cap">
+                        }
+                        else
+                        {
+                            <img class="card-img-top" src="~/Images/noimage.png" alt="Card image cap">
+                        }
+
+                        <div class="card-body">
+                            <h5 class="card-title cardText">@product.Name</h5> <br>
+                            <h5 class="card-title p-1 cardText">Price: $250</h5>
+                            <a class=" btn-dark  btnall" asp-action="SingleProduct" asp-controller="Product" asp-route-id="@product.Id">Shop</a>
+                        </div>
+                    </div>
+                </div>
+            }
+
+
+        </div>
+
+        @{
+            var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+            var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+        }
+
+        <a asp-action="ProductsPage"
+           asp-route-sortOrder="@ViewData["CurrentSort"]"
+           asp-route-pageNumber="@(Model.PageIndex - 1)"
+           asp-route-currentFilter="@ViewData["CurrentFilter"]"
+           class="btn btn-default @prevDisabled">
+            Previous
+        </a>
+        <a asp-action="ProductsPage"
+           asp-route-sortOrder="@ViewData["CurrentSort"]"
+           asp-route-pageNumber="@(Model.PageIndex + 1)"
+           asp-route-currentFilter="@ViewData["CurrentFilter"]"
+           class="btn btn-default @nextDisabled">
+            Next
+        </a>
+
+        @*<nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center mt-5">
+                <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>*@
+
+    </div>
+</div>

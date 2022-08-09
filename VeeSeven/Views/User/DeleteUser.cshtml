@@ -1,0 +1,13 @@
+﻿@model UserModel
+
+<h3 style="text-align: left; width: 106%; margin-top: -20px; padding: 10px; margin-left: -15px;background-color: #f6f6f6; color: red;">Delete User</h3>
+<div class="container mt-3 bg-white  my-3">
+    <form asp-action="DeleteUser" asp-controller="User">
+        <input asp-for="Id" hidden />
+        <h4 class="mt-2">Do You Want To Delete User</h4>
+        <p class="w-75" style="background-color: #f6f6f6; font-size: 25px; font-weight: 700; padding: 15px;"> @Model.Name </p>
+        <button class="btn-dark btnall mt-4 w-75" style="border-radius: 0px; padding: 0px 20px; font-size: 24px;">
+            Delete User
+        </button>
+    </form>
+</div>

@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31005.135
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VeeSeven", "VeeSeven\VeeSeven.csproj", "{701D7532-E4CE-4027-B14F-BAA59CC15CEA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntityLib", "EntityLib\EntityLib.csproj", "{CDE6224D-1AC7-4867-85DA-F407F27EF52B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{701D7532-E4CE-4027-B14F-BAA59CC15CEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{701D7532-E4CE-4027-B14F-BAA59CC15CEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{701D7532-E4CE-4027-B14F-BAA59CC15CEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{701D7532-E4CE-4027-B14F-BAA59CC15CEA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CDE6224D-1AC7-4867-85DA-F407F27EF52B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CDE6224D-1AC7-4867-85DA-F407F27EF52B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CDE6224D-1AC7-4867-85DA-F407F27EF52B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CDE6224D-1AC7-4867-85DA-F407F27EF52B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FDBEEBCD-D8AD-414D-8891-19B41789FCC9}
+	EndGlobalSection
+EndGlobal

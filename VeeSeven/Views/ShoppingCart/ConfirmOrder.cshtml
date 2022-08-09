@@ -1,0 +1,38 @@
+﻿@model UserModel
+@{
+    ViewData["Title"] = "ConfirmOrder";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="allBox">
+    <h1>Checkout</h1>
+</div>
+<div class="container mt-5 bg-white">
+    <form asp-action="ConfirmOrder" asp-controller="ShoppingCart" method="post">
+
+        <h3 class="font-weight-bold">Getting your order</h3><hr>
+        <h5 class="font-weight-bold">Shipping Information</h5>
+        <label class="font-weight-bold mt-4">First Name</label>
+        <input asp-for="Name" type="text" class="form-control w-50" required>
+
+        <label class="font-weight-bold mt-2">Address</label>
+        <input asp-for="Address" type="text" class="form-control w-50" required>
+        <hr>
+        <h5 class="font-weight-bold">Contact Information</h5>
+        <label class="font-weight-bold mt-4">Email Address</label>
+        <input asp-for="Email" type="email" class="form-control w-50">
+        <label class="font-weight-bold mt-2">Phone Number</label>
+        <input asp-for="Contact" type="tel" class="form-control w-50" required>
+        <label class="font-weight-bold mt-2">Password</label>
+        <input asp-for="Password" type="tel" class="form-control w-50" required>
+
+        <hr>
+        <h5 class="font-weight-bold">Delivery Information </h5>
+        <h5 class="font-weight-normal mt-4">Cash On Delivery</h5><br>
+        <button type="submit" class="btn-dark btnall mt-4 w-50 ">
+            Confirm Order
+        </button>
+    </form>
+    <hr>
+</div>

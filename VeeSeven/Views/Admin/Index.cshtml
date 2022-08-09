@@ -1,0 +1,77 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+
+    List<ShoppingCart> orders = (List<ShoppingCart>)ViewData["Orders"];
+}
+
+<div class="content2">
+    <h3 class="p-2" style="font-weight: 800;">Order list</h3>
+</div>
+
+<table class="table1">
+    <thead>
+        <tr>
+            <th class="p-2"> Order #</th>
+            <th>Name</th>
+            <th>Status</th>
+            <th>Total</th>
+            <th>Option</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var order in orders)
+        {
+            <tr>
+                <td class="p-2">@order.Id</td>
+                <td>@order.User.Name</td>
+                <td>@order.Status</td>
+                <td>$@order.Totoal</td>
+                <td>
+                    <a style="border:none; background-color: white;" id="ViewOrder" asp-action="UpdateOrder" asp-controller="Admin" asp-route-id="@order.Id" ><img class="optionImage" src="~/Icons/edit.png" alt="" srcset=""></a>
+                    <a style="border:none; background-color: white;" id="DeleteOrder" asp-action="DeleteOrder" asp-controller="ShoppingCart" asp-route-id="@order.Id"><img class="optionImage" src="~/Icons/delete.png" alt="" srcset=""></a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+
+<div class="modal fade" id="ProductsModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div id="mydialog-body" class="modal-body">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@section Model{
+
+    <script>
+        $("#ViewOrder,#DeleteOrder").click(function (event) {
+            event.preventDefault();
+            var url = $(this).attr("href");
+            $.ajax(
+                {
+                    url: url,
+                }
+            ).done(function (contactform) {
+
+                $("#mydialog-body").html(contactform);
+                $("#ProductsModal").modal();
+            }).fail(function (status) {
+                alert(status.status);
+            });
+        })
+    </script>
+
+}
+
+
+

@@ -1,0 +1,14 @@
+﻿@model ShoppingCart
+<h3 style="text-align: left; width: 106%; margin-top: -20px; padding: 10px; margin-left: -15px;background-color: #f6f6f6; color: red;">Delete Order</h3>
+<div class="container mt-3 bg-white  my-3">
+    <form asp-action="DeleteOrder" asp-controller="ShoppingCart">
+        <input asp-for="Id" hidden />
+        <h4 class="mt-2">Do You Want To Delete Order</h4>
+        <p class="w-75" style="background-color: #f6f6f6; font-size: 25px; font-weight: 700; padding: 15px;"> @Model.Id </p>
+        <a class="btn-dark btnall mt-4 w-75" asp-action="DeleteOrder" asp-controller="ShoppingCart" asp-route-id="@Model.Id" style="text-decoration: none; color: red;">Delete Order</a>
+
+        <button type="submit" class="btn-dark btnall mt-4 w-75" style="border-radius: 0px; padding: 0px 20px; font-size: 24px;">
+Delete Order
+        </button>
+    </form>
+</div>

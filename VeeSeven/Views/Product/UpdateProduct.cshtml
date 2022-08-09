@@ -1,0 +1,29 @@
+﻿@model ProductModel
+
+<h3 class="d-inline" style="text-align: left; width: 106%; margin-top: -20px; padding: 10px; margin-left: -15px;background-color: #f6f6f6;">Update Product</h3>
+<button type="button" class="close d-inline" data-dismiss="modal"><span>&times;</span></button>
+<div class="container mt-3 bg-white  my-3">
+    <form asp-action="UpdateProduct" asp-controller="Product" enctype="multipart/form-data">
+        <input asp-for="Id" hidden />
+        <input asp-for="Name" type="text" class="form-control w-100 " style="background-color: #f8f8f8; " placeholder="Name" required>
+        <input asp-for="Stock" type="number" class="form-control w-100  mt-3" style="background-color: #f8f8f8;" placeholder="Stock" required>
+        <input asp-for="PurchasePrice" type="number" class="form-control w-100 mt-3" style="background-color: #f8f8f8;" placeholder="Purchase Price" required>
+        <input asp-for="SalePrice" type="number" class="form-control w-100 mt-3" style="background-color: #f8f8f8;" placeholder="Sale Price" required>
+        <input asp-for="Discription" type="text" class="form-control w-100 mt-3" style="background-color: #f8f8f8;" placeholder="Discription">
+        @if (Model.Image != null)
+        {
+            <img class="img-thumbnail" src="data:image/jpg;base64,@Model.Image" alt="Card image cap">
+        }
+        else
+        {
+            <h3>Please Upload Image</h3>
+        }
+
+        <input asp-for="Image" accept="image/jpg" name="image" type="file" class="form-control w-100  mt-3" style="background-color: #f8f8f8;" placeholder="Upload Image">
+        <button type="submit" class="btn-dark btnall mt-4 w-100 ">
+            Update Product
+        </button>
+    </form>
+
+
+</div>

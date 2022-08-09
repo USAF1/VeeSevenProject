@@ -1,0 +1,105 @@
+﻿@model CartItemModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    List<ProductModel> RelatedProducts = (List<ProductModel>)ViewData["RelatedProdutcs"];
+    ViewData["Title"] = Model.Item.Name;
+}
+<div class="myContainer">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="container" style="width: 615px;  padding: 60px 20px 8px 20px; background-color:#f9f9f9; height: 620px; margin-top:80px">
+                <div>
+                    @if (Model.Item.Image != null)
+                    {
+                        <img src="data:image/jpg;base64,@Model.Item.Image" alt="" srcset="" style="width: 570px; height: 500px;">
+                    }
+                    else
+                    {
+                        <img style="width: 570px; height: 500px;" src="~/Images/noimage.png" alt="Card image cap">
+                    }
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <form asp-action="AddToCart" asp-controller="ShoppingCart" method="post">
+                <input asp-for="@Model.Item.Id" hidden />
+                <div class="container" style="width: 615px;  background-color:#f2f2f2; height: 600px; margin-top:90px">
+                    <h1 style="background-color: #f2f2f2;">@Model.Item.Name</h1>
+                    <div class="card-body bg-white">
+                        <h2 class="card-title"> Price: $@Model.Item.SalePrice</h2> <hr style="height: 2px; background-color: black;">
+                        <h5 class="card-title">Quantity</h5>
+                        <div class="p-2" style="width: 250px; height: 50px; background-color: #f2f2f2; display: flex; justify-content: space-around;">
+
+                            <button id="minus" type="button" class="btn btn-danger">-</button>
+                            <input asp-for="@Model.Quantity" type="number" class="form-control" value="1" id="quantity">
+                            <button id="pluse" type="button" class="btn btn-success">+</button>
+                        </div>
+                        <p class="card-text mt-3">
+                            @Model.Item.Discription
+                        </p>
+
+                        <button type="submit" class="btn-dark btnall  w-100">Add To Cart</button>
+
+                    </div>
+
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="mt-5" style="background-color:#f6f6f6">
+        <h2 class="p-4">Related Products</h2>
+        <div class="row mt-5 mx-4" style="padding: 0 0 0 30px;">
+
+            @foreach (var products in RelatedProducts)
+            {
+                <div class="col-md-4">
+                    <div class="card" style="width: 24rem;">
+                        @if (products.Image != null)
+                        {
+                            <img class="card-img-top" src="data:image/jpg;base64,@products.Image" alt="Card image cap">
+                        }
+                        else
+                        {
+                            <img class="card-img-top" src="~/Images/pro2.jpg" alt="Card image cap">
+                        }
+
+                        <div class="card-body">
+                            <h5 class="card-title">@products.Name</h5> <br>
+                            <h5 class="card-title p-2">Price: $@products.SalePrice</h5>
+                            <a class=" btn-dark  btnall" asp-action="SingleProduct" asp-controller="Product" asp-route-id="@products.Id">Shop</a>
+                        </div>
+                    </div>
+                </div>
+            }
+
+        </div>
+
+    </div><br><br><br><br>
+</div>
+
+@section myscript{
+    <script>
+
+        var count = 1;
+
+        $("#pluse").click(function () {
+            count = count + 1
+            $("#quantity").val(count);
+        })
+
+
+        $("#minus").click(function () {
+            if (count > 1) {
+                count = count - 1
+            } else {
+                count = 1
+            }
+            $("#quantity").val(count);
+        })
+
+
+    </script>
+
+}
